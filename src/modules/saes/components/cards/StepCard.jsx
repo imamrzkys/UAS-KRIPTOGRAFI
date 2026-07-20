@@ -80,14 +80,17 @@ export default function StepCard({ step, index, isActive, onClick }) {
       </p>
 
       {/* State before → after */}
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 16 }}>
+      <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
         <StateMatrix state={step.stateBefore} label="Before" size="sm" />
-        <div style={{
-          background: '#1A1A2E',
-          padding: '8px',
-          border: '3px solid #1A1A2E',
-          boxShadow: '3px 3px 0px #FDE68A',
-        }}>
+        <div 
+          className="rotate-90 sm:rotate-0 my-1 sm:my-0"
+          style={{
+            background: '#1A1A2E',
+            padding: '8px',
+            border: '3px solid #1A1A2E',
+            boxShadow: '3px 3px 0px #FDE68A',
+          }}
+        >
           <ArrowRight size={16} color="#FFFFFF" />
         </div>
         <StateMatrix state={step.stateAfter} label="After" size="sm" />

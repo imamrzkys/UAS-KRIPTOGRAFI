@@ -116,10 +116,10 @@ export default function RoundStepper() {
       {/* Round jump buttons */}
       {roundJumps.length > 0 && (
         <div>
-          <label className="block text-xs font-medium text-on-surface-variant mb-2">
+          <label className="block text-xs font-black uppercase text-on-surface-variant mb-2">
             Lompat ke Ronde
           </label>
-          <div className="flex flex-wrap gap-1.5">
+          <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-none whitespace-nowrap flex-row">
             {roundJumps.map(({ label, firstStepIndex, icon }) => {
               const isActive = currentStep >= firstStepIndex &&
                 (roundJumps.find(j => j.firstStepIndex > firstStepIndex)?.firstStepIndex ?? steps.length) > currentStep;
@@ -129,7 +129,7 @@ export default function RoundStepper() {
                   onClick={() => setCurrentStep(firstStepIndex)}
                   className={`
                     px-2.5 py-1.5 rounded-lg font-mono text-[11px] font-semibold
-                    transition-all duration-200 border-2 flex items-center gap-1
+                    transition-all duration-200 border-2 flex items-center gap-1 flex-shrink-0
                     ${isActive
                       ? 'bg-secondary text-on-secondary border-secondary shadow-md scale-105'
                       : 'bg-surface-container-high text-on-surface-variant border-outline-variant hover:border-outline'
@@ -170,12 +170,12 @@ export default function RoundStepper() {
       )}
 
       {/* Prev / Next */}
-      <div className="flex items-center gap-3">
+      <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3">
         <button
           onClick={prevStep}
           disabled={currentStep === 0}
           className={`
-            flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium
+            w-full sm:flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-medium
             transition-all duration-200
             ${currentStep === 0
               ? 'bg-surface-container-low text-on-surface-variant/50 cursor-not-allowed'
@@ -183,11 +183,11 @@ export default function RoundStepper() {
             }
           `}
         >
-          <span className="material-symbols-outlined text-lg">arrow_back</span>
+          <span className="material-symbols-outlined text-base">arrow_back</span>
           Sebelumnya
         </button>
 
-        <span className="font-mono text-xs text-on-surface-variant text-center min-w-[60px]">
+        <span className="font-mono text-xs text-on-surface-variant text-center py-1 min-w-[60px]">
           {currentStep + 1} / {steps.length}
         </span>
 
@@ -195,16 +195,16 @@ export default function RoundStepper() {
           onClick={nextStep}
           disabled={currentStep >= steps.length - 1}
           className={`
-            flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium
+            w-full sm:flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl text-xs sm:text-sm font-medium
             transition-all duration-200
             ${currentStep >= steps.length - 1
               ? 'bg-surface-container-low text-on-surface-variant/50 cursor-not-allowed'
-              : 'bg-primary text-on-primary hover:opacity-90 hover:scale-[1.02]'
+              : 'bg-surface-container-high text-on-surface hover:bg-surface-container-highest hover:scale-[1.02]'
             }
           `}
         >
           Berikutnya
-          <span className="material-symbols-outlined text-lg">arrow_forward</span>
+          <span className="material-symbols-outlined text-base">arrow_forward</span>
         </button>
       </div>
 

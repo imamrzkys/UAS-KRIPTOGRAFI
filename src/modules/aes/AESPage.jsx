@@ -193,18 +193,18 @@ export default function AESPage() {
             </div>
 
             <div className="border-4 border-nb-text p-4" style={{ background: '#FFDAF0', boxShadow: '4px 4px 0px #111111' }}>
-              <div className="flex items-center justify-between mb-4">
-                <h2 className="font-display font-black text-xl uppercase">Visualisasi State</h2>
-                <div className="flex gap-2">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4">
+                <h2 className="font-display font-black text-lg sm:text-xl uppercase">Visualisasi State</h2>
+                <div className="flex gap-2 w-full sm:w-auto">
                   <button
                     onClick={prevStep}
                     disabled={!canGoPrev}
-                    className="nb-btn nb-btn-white text-sm disabled:opacity-40"
+                    className="nb-btn nb-btn-white text-xs sm:text-sm disabled:opacity-40 flex-1 sm:flex-none justify-center"
                   >← Prev</button>
                   <button
                     onClick={nextStep}
                     disabled={!canGoNext}
-                    className="nb-btn nb-btn-yellow text-sm disabled:opacity-40"
+                    className="nb-btn nb-btn-yellow text-xs sm:text-sm disabled:opacity-40 flex-1 sm:flex-none justify-center"
                   >Next →</button>
                 </div>
               </div>
