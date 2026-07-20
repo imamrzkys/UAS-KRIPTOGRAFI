@@ -10,6 +10,8 @@ import ResultPanel from './components/simulator/ResultPanel';
 import RoundAccordion from './components/simulator/RoundAccordion';
 import useSimulatorStore from './store/simulatorStore';
 
+import Navbar from '../../components/shared/Navbar';
+
 // AES-specific styles
 import './index.css';
 
@@ -58,27 +60,8 @@ export default function AESPage() {
 
   return (
     <div className="min-h-screen" style={{ background: 'var(--background, #FFF8F0)' }}>
-      {/* AES Navbar */}
-      <nav
-        className="sticky top-0 z-50 border-b-4 border-nb-text"
-        style={{ background: '#FF8FD8' }}
-      >
-        <div className="nb-container flex items-center justify-between h-14 gap-4">
-          <a href="/" className="flex items-center gap-2 font-display font-black text-nb-text text-lg uppercase tracking-tight hover:opacity-80">
-            <span className="inline-flex items-center justify-center w-8 h-8 border-4 border-nb-text font-mono text-xs font-bold" style={{ background: '#111111', color: '#FF8FD8' }}>
-              CF
-            </span>
-            <span className="hidden sm:inline">CryptoFlow</span>
-            <span className="text-nb-text/40 font-normal hidden sm:inline">/</span>
-            <span className="text-nb-text hidden sm:inline">AES-128</span>
-          </a>
-          <div className="flex items-center gap-2">
-            <span className="nb-badge" style={{ background: '#111111', color: '#FF8FD8' }}>128-bit</span>
-            <span className="nb-badge bg-white">10 Rounds</span>
-            <a href="/" className="nb-btn nb-btn-white text-xs px-3 py-1.5" style={{ boxShadow: '2px 2px 0px #111111' }}>← Home</a>
-          </div>
-        </div>
-      </nav>
+      {/* Shared Navbar */}
+      <Navbar accentColor="#FF8FD8" moduleLabel="AES" />
 
       {/* Hero */}
       <div className="border-b-4 border-nb-text p-6 md:p-10" style={{ background: '#FFDAF0' }}>

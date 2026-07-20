@@ -38,14 +38,14 @@ export default function Navbar({ accentColor = '#FFE156', moduleLabel = null }) 
         </Link>
 
         {/* Nav links */}
-        <div className="flex items-center gap-1">
+        <div className="flex items-center gap-1 sm:gap-1.5 flex-wrap">
           {modules.map((m) => {
             const active = location.pathname === m.path;
             return (
               <Link
                 key={m.path}
                 to={m.path}
-                className="hidden md:inline-flex items-center gap-1 px-3 py-1.5 font-display font-bold text-xs uppercase border-4 border-nb-text transition-all"
+                className="inline-flex items-center justify-center px-1.5 sm:px-3 py-1 sm:py-1.5 font-display font-black text-[9px] sm:text-xs uppercase border-[3px] sm:border-4 border-nb-text transition-all"
                 style={{
                   background: active ? '#111111' : m.color,
                   color: active ? m.color : '#111111',
@@ -54,7 +54,7 @@ export default function Navbar({ accentColor = '#FFE156', moduleLabel = null }) 
                 }}
                 onMouseEnter={e => {
                   if (!active) {
-                    e.currentTarget.style.transform = 'translate(2px, 2px)';
+                    e.currentTarget.style.transform = 'translate(1.5px, 1.5px)';
                     e.currentTarget.style.boxShadow = 'none';
                   }
                 }}
@@ -73,10 +73,12 @@ export default function Navbar({ accentColor = '#FFE156', moduleLabel = null }) 
           {!isHome && (
             <Link
               to="/"
-              className="ml-2 inline-flex items-center gap-1.5 px-3 py-1.5 font-display font-black text-xs uppercase border-4 border-nb-text bg-white nb-btn transition-all"
-              style={{ boxShadow: '2px 2px 0px #111111' }}
+              className="inline-flex items-center justify-center px-1.5 sm:px-3 py-1 sm:py-1.5 font-display font-black text-[9px] sm:text-xs uppercase border-[3px] sm:border-4 border-nb-text bg-white text-black transition-all"
+              style={{
+                boxShadow: '2px 2px 0px #111111',
+              }}
               onMouseEnter={e => {
-                e.currentTarget.style.transform = 'translate(2px, 2px)';
+                e.currentTarget.style.transform = 'translate(1.5px, 1.5px)';
                 e.currentTarget.style.boxShadow = 'none';
               }}
               onMouseLeave={e => {

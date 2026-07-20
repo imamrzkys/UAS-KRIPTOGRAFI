@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDESStore } from './store/desStore.js';
-import { Header } from './components/layout/Header.jsx';
+import Navbar from '../../components/shared/Navbar';
 import { FooterActions } from './components/layout/FooterActions.jsx';
 import { StickyTabs } from './components/common/StickyTabs.jsx';
 import { HeroSection } from './components/simulator/HeroSection.jsx';
@@ -54,7 +54,7 @@ export default function DESPage() {
   return (
     <div className="min-h-screen flex flex-col bg-brutal-cream pb-24 md:pb-8 overflow-x-hidden">
       <ProcessingEngine />
-      <Header activeSection={activeSection} onSectionClick={handleSectionClick} />
+      <Navbar accentColor="#7EC8FF" moduleLabel="DES" />
 
       <div className="flex-1 flex relative overflow-x-hidden">
         <main className="flex-1 min-w-0 overflow-x-hidden">
