@@ -150,7 +150,7 @@ export default function Landing() {
       <Navbar accentColor="#FFE156" />
 
       {/* Hero Section */}
-      <section className="nb-container py-16 md:py-24">
+      <section className="nb-container pt-20 pb-16 md:py-24">
         <motion.div
           initial={{ opacity: 0, y: -24 }}
           animate={{ opacity: 1, y: 0 }}

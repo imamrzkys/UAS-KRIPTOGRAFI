@@ -96,13 +96,12 @@ export default function ConfigPanel() {
       </div>
 
       {/* Mode toggle: Encrypt / Decrypt */}
-      <div className="flex border-4 border-black relative bg-white">
+      <div className="flex flex-col sm:flex-row border-4 border-black relative bg-white">
         {['encrypt', 'decrypt'].map((m) => (
           <button
             key={m}
             onClick={() => setActiveMode(m)}
-            className="flex-1 py-2.5 text-xs sm:text-sm font-black uppercase relative transition-colors duration-200 flex items-center justify-center gap-2 z-10"
-            style={{ borderRight: m === 'encrypt' ? '4px solid #111111' : 'none' }}
+            className="flex-1 py-3 text-xs sm:text-sm font-black uppercase relative transition-colors duration-200 flex items-center justify-center gap-2 z-10 border-b-4 sm:border-b-0 sm:border-r-4 last:border-0 border-black"
           >
             {activeMode === m && (
               <motion.span

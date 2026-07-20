@@ -78,54 +78,56 @@ function AESHeroSection() {
   }, [displayedText, isDeleting, currentPhraseIndex, isTransitioning]);
 
   return (
-    <section className="relative w-full py-8 md:py-12 border-b-4 border-black bg-[#FFDAF0] overflow-hidden px-6 md:px-12 flex flex-col md:flex-row md:items-center justify-between gap-8 md:gap-12 select-none animate-fadeIn">
-      <div className="flex-1 max-w-2xl">
-        <div className="inline-flex items-center gap-2 mb-4">
-          <span className="nb-badge animate-pulse" style={{ background: '#FF8FD8' }}>AES-128</span>
-          <span className="nb-badge bg-white">Tugas UAS • Sem 6</span>
+    <section className="relative w-full py-8 md:py-12 border-b-4 border-black bg-[#FFDAF0] overflow-hidden px-6 md:px-12 select-none">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-8 md:gap-12">
+        <div className="flex-1 max-w-2xl">
+          <div className="inline-flex items-center gap-2 mb-4">
+            <span className="nb-badge animate-pulse" style={{ background: '#FF8FD8' }}>AES-128</span>
+            <span className="nb-badge bg-white">Tugas UAS • Sem 6</span>
+          </div>
+          <AnimatePresence mode="wait">
+            <motion.h2
+              key={currentPhraseIndex}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+              className="font-display font-black text-5xl sm:text-7xl lg:text-8xl leading-[0.9] tracking-tighter uppercase text-black whitespace-pre-line min-h-[2.1em]"
+            >
+              {displayedText}
+              {!isTransitioning && (
+                <span className="inline-block w-1 h-[0.9em] bg-black ml-1 animate-pulse align-middle"></span>
+              )}
+            </motion.h2>
+          </AnimatePresence>
+          <p className="font-display font-extrabold text-xs sm:text-sm text-black/70 mt-3 max-w-xl uppercase">
+            Simulator Interaktif AES-128 — Visualisasi Key Expansion, SubBytes, ShiftRows, MixColumns, AddRoundKey, State Matrix, dan Dekripsi Invers.
+          </p>
+          <div className="font-mono text-[9px] text-black/40 mt-2 uppercase tracking-widest">
+            Imam Rizki Saputra · 301230013 · Kriptografi 2026
+          </div>
         </div>
-        <AnimatePresence mode="wait">
-          <motion.h2
-            key={currentPhraseIndex}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
-            className="font-display font-black text-5xl sm:text-7xl lg:text-8xl leading-[0.9] tracking-tighter uppercase text-black whitespace-pre-line min-h-[2.1em]"
-          >
-            {displayedText}
-            {!isTransitioning && (
-              <span className="inline-block w-1 h-[0.9em] bg-black ml-1 animate-pulse align-middle"></span>
-            )}
-          </motion.h2>
-        </AnimatePresence>
-        <p className="font-display font-extrabold text-xs sm:text-sm text-black/70 mt-3 max-w-xl uppercase">
-          Simulator Interaktif AES-128 — Visualisasi Key Expansion, SubBytes, ShiftRows, MixColumns, AddRoundKey, State Matrix, dan Dekripsi Invers.
-        </p>
-        <div className="font-mono text-[9px] text-black/40 mt-2 uppercase tracking-widest">
-          Imam Rizki Saputra · 301230013 · Kriptografi 2026
-        </div>
-      </div>
 
-      {/* Badges */}
-      <div className="flex flex-wrap gap-4 items-center md:flex-col md:items-end flex-shrink-0">
-        {[
-          ['10 ROUNDS', '#FF8FD8'],
-          ['128-BIT BLOCK', '#FFFFFF'],
-          ['128-BIT KEY', '#FFE156']
-        ].map(([txt, bg], i) => (
-          <motion.div
-            key={txt}
-            initial={{ scale: 0, rotate: i % 2 === 0 ? -15 : 15 }}
-            animate={{ scale: 1, rotate: i % 2 === 0 ? -2 : 3 }}
-            whileHover={{ scale: 1.1, rotate: 0, y: -4 }}
-            transition={{ type: 'spring', stiffness: 220, damping: 10, delay: i * 0.05 }}
-            className="text-black border-[3px] border-black px-4 py-2 font-display font-black text-xs sm:text-sm uppercase shadow-sm select-none cursor-pointer"
-            style={{ background: bg, borderRadius: '0px', boxShadow: '3px 3px 0px #111' }}
-          >
-            {txt}
-          </motion.div>
-        ))}
+        {/* Badges */}
+        <div className="flex flex-wrap gap-4 items-center md:flex-col md:items-end flex-shrink-0">
+          {[
+            ['10 ROUNDS', '#FF8FD8'],
+            ['128-BIT BLOCK', '#FFFFFF'],
+            ['128-BIT KEY', '#FFE156']
+          ].map(([txt, bg], i) => (
+            <motion.div
+              key={txt}
+              initial={{ scale: 0, rotate: i % 2 === 0 ? -15 : 15 }}
+              animate={{ scale: 1, rotate: i % 2 === 0 ? -2 : 3 }}
+              whileHover={{ scale: 1.1, rotate: 0, y: -4 }}
+              transition={{ type: 'spring', stiffness: 220, damping: 10, delay: i * 0.05 }}
+              className="text-black border-[3px] border-black px-4 py-2 font-display font-black text-xs sm:text-sm uppercase shadow-sm select-none cursor-pointer"
+              style={{ background: bg, borderRadius: '0px', boxShadow: '3px 3px 0px #111' }}
+            >
+              {txt}
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -176,7 +178,7 @@ export default function AESPage() {
         className="nb-container py-8 space-y-8"
       >
         {/* Config Panel */}
-        <div className="nb-card p-6">
+        <div className="nb-card p-4 sm:p-6">
           <ConfigPanel />
         </div>
 
