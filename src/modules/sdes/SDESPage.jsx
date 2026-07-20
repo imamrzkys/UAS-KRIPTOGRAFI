@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { encrypt, decrypt, generateKeys } from './services/sdes.js';
 import { bitArrayToPlain } from './utils/formatters.js';
@@ -181,6 +181,110 @@ function SBoxTable({ data, label, accent }) {
   );
 }
 
+/* ─── Typewriter Hero Section untuk S-DES ──────────────── */
+function SDESHeroSection() {
+  const [displayedText, setDisplayedText] = useState('');
+  const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [isTransitioning, setIsTransitioning] = useState(false);
+
+  const phrases = [
+    ['MINI', 'DES'],
+    ['8-BIT', 'BLOCK'],
+    ['EASY', 'KEYS'],
+    ['SBOX', 'FLOW'],
+    ['STEP', 'TRACE']
+  ];
+
+  useEffect(() => {
+    if (isTransitioning) return;
+    const currentPhrase = phrases[currentPhraseIndex];
+    const fullText = currentPhrase.join('\n');
+    
+    const typingSpeed = 150;
+    const deleteSpeed = 70;
+    const pauseAfterTyping = 3000;
+    const transitionDelay = 1500;
+
+    const timeout = setTimeout(() => {
+      if (!isDeleting) {
+        if (displayedText.length < fullText.length) {
+          setDisplayedText(fullText.slice(0, displayedText.length + 1));
+        } else {
+          setTimeout(() => setIsDeleting(true), pauseAfterTyping);
+        }
+      } else {
+        if (displayedText.length > 0) {
+          setDisplayedText(displayedText.slice(0, -1));
+        } else {
+          setIsTransitioning(true);
+          setIsDeleting(false);
+          setTimeout(() => {
+            setCurrentPhraseIndex((prev) => (prev + 1) % phrases.length);
+            setDisplayedText('');
+            setIsTransitioning(false);
+          }, transitionDelay);
+        }
+      }
+    }, isDeleting ? deleteSpeed : (displayedText.length === fullText.length ? 0 : typingSpeed));
+
+    return () => clearTimeout(timeout);
+  }, [displayedText, isDeleting, currentPhraseIndex, isTransitioning]);
+
+  return (
+    <section className="relative w-full py-8 md:py-12 border-b-4 border-black bg-[#CCFAF0] overflow-hidden px-6 md:px-12 flex flex-col md:flex-row md:items-center justify-between gap-8 md:gap-12 select-none">
+      <div className="flex-1 max-w-2xl">
+        <div className="inline-flex items-center gap-2 mb-4">
+          <span className="nb-badge animate-pulse" style={{ background: ACCENT }}>S-DES</span>
+          <span className="nb-badge bg-white">Tugas UAS • Sem 6</span>
+        </div>
+        <AnimatePresence mode="wait">
+          <motion.h2
+            key={currentPhraseIndex}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+            className="font-display font-black text-5xl sm:text-7xl lg:text-8xl leading-[0.9] tracking-tighter uppercase text-black whitespace-pre-line min-h-[2.1em]"
+          >
+            {displayedText}
+            {!isTransitioning && (
+              <span className="inline-block w-1 h-[0.9em] bg-black ml-1 animate-pulse align-middle"></span>
+            )}
+          </motion.h2>
+        </AnimatePresence>
+        <p className="font-display font-extrabold text-xs sm:text-sm text-black/70 mt-3 max-w-xl uppercase">
+          Simulator Interaktif S-DES — Visualisasi Pembangkitan Subkunci (K1 & K2), Permutasi Awal (IP), Putaran Feistel, Substitusi S-Box S0/S1, dan Permutasi Akhir (IP⁻¹).
+        </p>
+        <div className="font-mono text-[9px] text-black/40 mt-2 uppercase tracking-widest">
+          Imam Rizki Saputra · 301230013 · Kriptografi 2026
+        </div>
+      </div>
+
+      {/* Badges */}
+      <div className="flex flex-wrap gap-4 items-center md:flex-col md:items-end flex-shrink-0">
+        {[
+          ['2 ROUNDS', ACCENT],
+          ['8-BIT BLOCK', '#FFFFFF'],
+          ['10-BIT KEY', '#FFE156']
+        ].map(([txt, bg], i) => (
+          <motion.div
+            key={txt}
+            initial={{ scale: 0, rotate: i % 2 === 0 ? -15 : 15 }}
+            animate={{ scale: 1, rotate: i % 2 === 0 ? -2 : 3 }}
+            whileHover={{ scale: 1.1, rotate: 0, y: -4 }}
+            transition={{ type: 'spring', stiffness: 220, damping: 10, delay: i * 0.05 }}
+            className="text-black border-[3px] border-black px-4 py-2 font-display font-black text-xs sm:text-sm uppercase shadow-sm select-none cursor-pointer"
+            style={{ background: bg, borderRadius: '0px', boxShadow: '3px 3px 0px #111' }}
+          >
+            {txt}
+          </motion.div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 /* ─── Main Component ─────────────────────────────────────────── */
 export default function SDESPage() {
   const [mode, setMode]           = useState('encrypt'); // 'encrypt' | 'decrypt'
@@ -236,32 +340,7 @@ export default function SDESPage() {
     <div style={{ minHeight: '100vh', background: '#FFF8F0', fontFamily: '"Space Grotesk", sans-serif' }}>
       <Navbar accentColor={ACCENT} moduleLabel="S-DES" />
 
-      {/* ── Hero ─────────────────────────────────── */}
-      <div style={{ background: '#CCFAF0', borderBottom: '4px solid #111111', padding: '1.5rem 0' }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 1.5rem', display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '1rem' }}>
-          <div>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
-              <span style={{ padding: '3px 10px', border: '3px solid #111111', boxShadow: '2px 2px 0px #111111', background: ACCENT, fontFamily: '"Space Mono",monospace', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase' }}>S-DES</span>
-              <span style={{ padding: '3px 10px', border: '3px solid #111111', background: 'white', fontFamily: '"Space Mono",monospace', fontSize: '11px', fontWeight: 700, textTransform: 'uppercase' }}>Tugas UAS · Sem 6</span>
-            </div>
-            <h1 style={{ margin: 0, fontFamily: '"Space Grotesk",sans-serif', fontWeight: 900, fontSize: 'clamp(2rem,5vw,3rem)', textTransform: 'uppercase', lineHeight: 1, color: '#111111' }}>
-              Simplified DES
-            </h1>
-            <p style={{ margin: '6px 0 0', fontFamily: '"Space Mono",monospace', fontSize: '11px', color: '#111111', opacity: 0.5, textTransform: 'uppercase' }}>
-              8-Bit Block · 10-Bit Key · 2 Feistel Rounds · Imam Rizki Saputra · 301230013
-            </p>
-          </div>
-          <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-            {['K1 & K2 Generation','IP','Feistel Round 1','Feistel Round 2','SW (Swap)','FP'].map(f => (
-              <span key={f} style={{
-                padding: '3px 8px', border: '2px solid #111111', boxShadow: '2px 2px 0px #111111',
-                fontFamily: '"Space Mono",monospace', fontSize: '10px', fontWeight: 700,
-                background: ACCENT, textTransform: 'uppercase', color: '#111111',
-              }}>{f}</span>
-            ))}
-          </div>
-        </div>
-      </div>
+      <SDESHeroSection />
 
       {/* ── Main Content ─────────────────────────── */}
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '2rem 1.5rem' }}>

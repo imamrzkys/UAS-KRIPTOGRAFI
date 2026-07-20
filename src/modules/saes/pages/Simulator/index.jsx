@@ -112,31 +112,7 @@ export default function Simulator() {
     <div style={S.page}>
       <div style={S.wrap}>
 
-        {/* ── Page Header ── */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-          style={{ paddingBottom: '2rem', borderBottom: '4px solid #1A1A2E', marginBottom: '2rem' }}
-        >
-          <div style={{
-            display: 'inline-block',
-            background: '#FF85C2',
-            border: '3px solid #1A1A2E',
-            boxShadow: '3px 3px 0px #1A1A2E',
-            padding: '4px 14px',
-            marginBottom: 14,
-            fontWeight: 900, fontSize: '0.65rem', textTransform: 'uppercase', letterSpacing: '0.12em', color: '#1A1A2E',
-          }}>
-            S-AES Simulator
-          </div>
-          <h1 style={{ fontWeight: 900, fontSize: 'clamp(1.8rem, 5vw, 3rem)', color: '#1A1A2E', textTransform: 'uppercase', lineHeight: 1.1, marginBottom: 10 }}>
-            Laboratorium Cipher Interaktif
-          </h1>
-          <p style={{ fontWeight: 600, fontSize: '0.95rem', color: '#4A4A6A', maxWidth: 560, lineHeight: 1.6 }}>
-            Masukkan plaintext dan kunci biner 16-bit, lalu jalankan enkripsi atau dekripsi untuk melihat setiap tahapan S-AES secara visual.
-          </p>
-        </motion.div>
+        {/* Page Header (Typewriter animated in wrapper) */}
 
         {/* ── INPUT PANEL ── */}
         <motion.div
