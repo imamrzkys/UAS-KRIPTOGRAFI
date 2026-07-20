@@ -16,19 +16,19 @@ export default function Navbar({ accentColor = '#FFE156', moduleLabel = null }) 
       className="sticky top-0 z-50 border-b-4 border-nb-text"
       style={{ background: accentColor }}
     >
-      <div className="nb-container flex items-center justify-between h-14 gap-4">
+      <div className="nb-container flex flex-col sm:flex-row sm:items-center justify-between py-2 sm:py-0 sm:min-h-[3.5rem] gap-2 sm:gap-4">
         {/* Logo */}
         <Link
           to="/"
-          className="flex items-center gap-2 font-display font-black text-nb-text text-lg uppercase tracking-tight hover:opacity-80 transition-opacity shrink-0"
+          className="flex items-center gap-2 font-display font-black text-nb-text text-sm sm:text-lg uppercase tracking-tight hover:opacity-80 transition-opacity shrink-0"
         >
           <span
-            className="inline-flex items-center justify-center w-8 h-8 border-4 border-nb-text font-mono text-xs font-bold"
+            className="inline-flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 border-[3px] sm:border-4 border-nb-text font-mono text-xs font-bold"
             style={{ background: '#111111', color: accentColor }}
           >
             CF
           </span>
-          <span className="hidden sm:inline">CryptoFlow</span>
+          <span>CryptoFlow</span>
           {moduleLabel && (
             <>
               <span className="text-nb-text/40 font-normal">/</span>
@@ -38,7 +38,7 @@ export default function Navbar({ accentColor = '#FFE156', moduleLabel = null }) 
         </Link>
 
         {/* Nav links */}
-        <div className="flex items-center gap-1 sm:gap-1.5 flex-wrap">
+        <div className="flex items-center gap-1 sm:gap-1.5 flex-wrap justify-start sm:justify-end">
           {modules.map((m) => {
             const active = location.pathname === m.path;
             return (

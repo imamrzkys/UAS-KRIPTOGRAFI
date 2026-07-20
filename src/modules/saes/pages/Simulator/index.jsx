@@ -119,21 +119,20 @@ export default function Simulator() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.1 }}
+          className="p-4 sm:p-7 bg-white"
           style={{
-            background: '#FFFFFF',
             border: '4px solid #1A1A2E',
             boxShadow: '6px 6px 0px #1A1A2E',
-            padding: '1.75rem',
             marginBottom: '2.5rem',
           }}
         >
           {/* Mode toggle */}
-          <div style={{ display: 'flex', gap: 12, marginBottom: '1.5rem', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: 12, marginBottom: '1.5rem', flexWrap: 'wrap', alignItems: 'center' }}>
             <span style={S.label}>Mode:</span>
-            <div style={{ display: 'flex', gap: 10 }}>
+            <div className="flex gap-2 flex-1 sm:flex-none">
               <button
                 onClick={() => setMode('encrypt')}
-                className="btn-brutal"
+                className="btn-brutal flex-1 sm:flex-none"
                 style={{
                   background: mode === 'encrypt' ? '#FF85C2' : '#FFFFFF',
                   color: '#1A1A2E',
@@ -145,7 +144,7 @@ export default function Simulator() {
               </button>
               <button
                 onClick={() => setMode('decrypt')}
-                className="btn-brutal"
+                className="btn-brutal flex-1 sm:flex-none"
                 style={{
                   background: mode === 'decrypt' ? '#5ECFB1' : '#FFFFFF',
                   color: '#1A1A2E',
@@ -177,25 +176,25 @@ export default function Simulator() {
           </div>
 
           {/* Action row */}
-          <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', paddingTop: '1.25rem', borderTop: '3px dashed #1A1A2E', alignItems: 'center' }}>
+          <div className="flex flex-col sm:flex-row gap-3 pt-5 border-t-3 border-dashed border-[#1A1A2E] sm:items-center">
             <button
               onClick={mode === 'encrypt' ? saes.handleEncrypt : saes.handleDecrypt}
-              className="btn-brutal"
-              style={{ background: '#FFB347', color: '#1A1A2E', padding: '10px 24px', fontSize: '0.875rem', flexShrink: 0 }}
+              className="btn-brutal w-full sm:w-auto"
+              style={{ background: '#FFB347', color: '#1A1A2E', padding: '10px 24px', fontSize: '0.875rem' }}
             >
               {mode === 'encrypt' ? 'Enkripsi' : 'Dekripsi'} <ArrowRight size={15} />
             </button>
             <button
               onClick={saes.reset}
-              className="btn-brutal"
-              style={{ background: '#FFFFFF', color: '#1A1A2E', padding: '10px 18px', fontSize: '0.8rem', flexShrink: 0 }}
+              className="btn-brutal w-full sm:w-auto"
+              style={{ background: '#FFFFFF', color: '#1A1A2E', padding: '10px 18px', fontSize: '0.8rem' }}
             >
               <RotateCcw size={14} /> Reset
             </button>
             <button
               onClick={saes.loadTestVector}
-              className="btn-brutal"
-              style={{ background: '#C084FC', color: '#1A1A2E', padding: '10px 18px', fontSize: '0.8rem', flexShrink: 0 }}
+              className="btn-brutal w-full sm:w-auto"
+              style={{ background: '#C084FC', color: '#1A1A2E', padding: '10px 18px', fontSize: '0.8rem' }}
             >
               Test Vector
             </button>

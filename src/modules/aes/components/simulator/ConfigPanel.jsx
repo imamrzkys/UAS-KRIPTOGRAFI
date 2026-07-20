@@ -96,24 +96,25 @@ export default function ConfigPanel() {
       </div>
 
       {/* Mode toggle: Encrypt / Decrypt */}
-      <div className="flex rounded-xl overflow-hidden border-2 border-outline-variant relative bg-surface-container-low">
+      <div className="flex border-4 border-black relative bg-white">
         {['encrypt', 'decrypt'].map((m) => (
           <button
             key={m}
             onClick={() => setActiveMode(m)}
-            className="flex-1 py-2.5 text-sm font-semibold capitalize relative transition-colors duration-200 flex items-center justify-center gap-2 z-10"
+            className="flex-1 py-2.5 text-xs sm:text-sm font-black uppercase relative transition-colors duration-200 flex items-center justify-center gap-2 z-10"
+            style={{ borderRight: m === 'encrypt' ? '4px solid #111111' : 'none' }}
           >
             {activeMode === m && (
               <motion.span
                 layoutId="active-config-mode"
-                className="absolute inset-0 bg-primary z-0"
+                className="absolute inset-0 bg-[#FF8FD8] z-0"
                 transition={{ type: 'spring', stiffness: 450, damping: 30 }}
               />
             )}
-            <span className={`material-symbols-outlined text-lg relative z-10 transition-colors duration-200 ${activeMode === m ? 'text-on-primary' : 'text-on-surface-variant'}`}>
+            <span className={`material-symbols-outlined text-lg relative z-10 transition-colors duration-200 ${activeMode === m ? 'text-black' : 'text-black/60'}`}>
               {m === 'encrypt' ? 'lock' : 'lock_open'}
             </span>
-            <span className={`relative z-10 transition-colors duration-200 ${activeMode === m ? 'text-on-primary' : 'text-on-surface-variant'}`}>
+            <span className={`relative z-10 transition-colors duration-200 ${activeMode === m ? 'text-black' : 'text-black/60'}`}>
               {m === 'encrypt' ? 'Enkripsi' : 'Dekripsi'}
             </span>
           </button>
@@ -266,21 +267,20 @@ export default function ConfigPanel() {
       </button>
 
       {/* Action buttons */}
-      <div className="flex gap-3 pt-1">
+      <div className="flex flex-col sm:flex-row gap-3 pt-1">
         <motion.button
           onClick={() => handleRun(activeMode)}
           disabled={!canRun}
-          whileHover={canRun ? { scale: 1.02 } : {}}
           whileTap={canRun ? { scale: 0.98 } : {}}
           className={`
-            flex-1 px-5 py-3.5 rounded-xl font-medium text-sm
-            focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2
-            shadow-lg flex items-center justify-center gap-2 transition-all
+            flex-1 px-5 py-3 border-4 border-black font-black text-sm
+            shadow-[4px_4px_0px_#000] flex items-center justify-center gap-2 transition-all
             ${canRun
-              ? 'bg-primary text-on-primary hover:opacity-90 hover:shadow-xl'
-              : 'bg-surface-container-low text-on-surface-variant cursor-not-allowed'
+              ? 'bg-[#FF8FD8] text-black hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-[2px_2px_0px_#000]'
+              : 'bg-gray-200 text-gray-500 cursor-not-allowed shadow-none translate-y-[4px] translate-x-[4px]'
             }
           `}
+          style={{ borderRadius: '0px' }}
         >
           {isRunning ? (
             <>
@@ -299,12 +299,11 @@ export default function ConfigPanel() {
 
         <motion.button
           onClick={handleReset}
-          whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
-          className="px-5 py-3.5 border-2 border-outline text-on-surface rounded-xl
-                     font-medium text-sm hover:bg-surface-container-high transition-all
-                     focus:outline-none focus:ring-2 focus:ring-outline focus:ring-offset-2
+          className="px-5 py-3 border-4 border-black text-black font-black text-sm
+                     bg-white shadow-[4px_4px_0px_#000] hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-[2px_2px_0px_#000] transition-all
                      flex items-center justify-center gap-2"
+          style={{ borderRadius: '0px' }}
         >
           <span className="material-symbols-outlined text-lg">refresh</span>
           Reset
