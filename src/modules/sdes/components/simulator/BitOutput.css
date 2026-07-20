@@ -1,0 +1,35 @@
+.bit-output {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.bit-output__label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--on-surface-var);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.bit-output__row {
+  display: flex;
+  gap: var(--space-xs);
+  flex-wrap: wrap;
+}
+
+.bit-output--empty .bit-output__placeholder {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  min-height: var(--bit-size);
+}
+
+.bit-output__waiting {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--outline);
+  font-style: italic;
+  animation: float 3s ease-in-out infinite;
+}

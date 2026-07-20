@@ -1,0 +1,71 @@
+/* ─── Mobile-first: single column ──────────────────────── */
+.simulator-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  align-items: start;
+}
+
+/* ─── Main column ─────────────────────────────────────── */
+.simulator-layout__main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  min-width: 0; /* prevent overflow */
+}
+
+/* ─── Sidebar ────────────────────────────────────────── */
+.simulator-layout__sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+/* ─── iPad / Tablet (768px+): keep single column, sidebar goes below */
+@media (min-width: 768px) and (max-width: 1099px) {
+  .simulator-layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  .simulator-layout__sidebar {
+    /* On tablet, show sidebar as a 2-col row of cards */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+    position: static;
+  }
+}
+
+/* ─── Desktop (1100px+): sidebar on the right, sticky */
+@media (min-width: 1100px) {
+  .simulator-layout {
+    grid-template-columns: minmax(0, 1fr) 340px;
+    gap: var(--space-xl);
+  }
+
+  .simulator-layout__sidebar {
+    position: sticky;
+    top: 80px; /* Navbar height + spacing */
+    max-height: calc(100vh - 96px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 2px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0,212,255,0.2) transparent;
+  }
+
+  .simulator-layout__sidebar::-webkit-scrollbar { width: 4px; }
+  .simulator-layout__sidebar::-webkit-scrollbar-track { background: transparent; }
+  .simulator-layout__sidebar::-webkit-scrollbar-thumb {
+    background: rgba(0,212,255,0.2);
+    border-radius: 2px;
+  }
+}
+
+/* ─── Large Desktop (1400px+): wider sidebar */
+@media (min-width: 1400px) {
+  .simulator-layout {
+    grid-template-columns: minmax(0, 1fr) 380px;
+  }
+}

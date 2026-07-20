@@ -1,0 +1,20 @@
+.bit-input {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.bit-input__label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--on-surface-var);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.bit-input__row {
+  display: flex;
+  gap: var(--space-xs);
+  flex-wrap: wrap;
+}

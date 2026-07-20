@@ -1,0 +1,96 @@
+.bitbox {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 1.5px solid var(--glass-border);
+  background: var(--glass-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all var(--transition-fast);
+  user-select: none;
+  outline: none;
+  position: relative;
+}
+
+.bitbox:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+}
+
+/* Sizes */
+.bitbox--sm {
+  width: 32px;
+  height: 32px;
+}
+
+.bitbox--md {
+  width: var(--bit-size);
+  height: var(--bit-size);
+}
+
+.bitbox--lg {
+  width: 48px;
+  height: 48px;
+}
+
+.bitbox__value {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1;
+  color: var(--on-surface-var);
+  transition: color var(--transition-fast);
+}
+
+.bitbox--lg .bitbox__value {
+  font-size: 22px;
+}
+
+.bitbox--sm .bitbox__value {
+  font-size: 14px;
+}
+
+/* Active state (value=1) */
+.bitbox--active {
+  border-color: var(--cyan);
+  background: rgba(0, 212, 255, 0.12);
+  box-shadow: 0 0 12px rgba(0, 212, 255, 0.25), inset 0 0 8px rgba(0, 212, 255, 0.08);
+}
+
+.bitbox--active .bitbox__value {
+  color: var(--cyan);
+}
+
+/* Dim state (value=0) */
+.bitbox--dim {
+  border-color: var(--glass-border);
+  background: var(--glass-bg);
+}
+
+.bitbox--dim .bitbox__value {
+  color: var(--outline);
+}
+
+/* Animated pulse */
+.bitbox--animated.bitbox--active {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Read-only */
+.bitbox--readonly {
+  cursor: default;
+  pointer-events: none;
+}
+
+/* Hover */
+.bitbox:not(.bitbox--readonly):hover {
+  border-color: var(--primary);
+  background: rgba(172, 199, 255, 0.12);
+  transform: translateY(-1px);
+}
+
+.bitbox:not(.bitbox--readonly):active {
+  transform: scale(0.95);
+}

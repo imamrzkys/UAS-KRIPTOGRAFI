@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   NEOBRUTALISM PASTEL — Global Design System
+   CryptoFlow Unified Simulator
+   ============================================ */
+
+:root {
+  --nb-pink:   #FF8FD8;
+  --nb-teal:   #5FE3C4;
+  --nb-yellow: #FFE156;
+  --nb-blue:   #7EC8FF;
+  --nb-bg:     #FFF8F0;
+  --nb-text:   #111111;
+  --nb-border: 4px solid #111111;
+  --nb-shadow: 4px 4px 0px #111111;
+  --nb-shadow-sm: 2px 2px 0px #111111;
+  --nb-shadow-lg: 6px 6px 0px #111111;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Space Grotesk', sans-serif;
+  background-color: var(--nb-bg);
+  color: var(--nb-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =====================
+   NEOBRUTALISM UTILITIES
+   ===================== */
+
+/* NB Card */
+.nb-card {
+  background: white;
+  border: 4px solid #111111;
+  box-shadow: 4px 4px 0px #111111;
+}
+
+.nb-card-sm {
+  border: 3px solid #111111;
+  box-shadow: 3px 3px 0px #111111;
+}
+
+/* NB Input */
+.nb-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-family: 'Space Mono', monospace;
+  font-size: 1rem;
+  border: 4px solid #111111;
+  background: #FFFFFF;
+  color: #111111;
+  outline: none;
+  transition: box-shadow 0.15s;
+}
+
+.nb-input:focus {
+  box-shadow: 4px 4px 0px #111111;
+}
+
+.nb-input.error {
+  border-color: #FF5757;
+}
+
+/* NB Button Primary (Yellow) */
+.nb-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 800;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 4px solid #111111;
+  box-shadow: 4px 4px 0px #111111;
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.1s;
+  color: #111111;
+}
+
+.nb-btn:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px #111111;
+}
+
+.nb-btn:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0px 0px 0px #111111;
+}
+
+.nb-btn-yellow { background: #FFE156; }
+.nb-btn-pink   { background: #FF8FD8; }
+.nb-btn-teal   { background: #5FE3C4; }
+.nb-btn-blue   { background: #7EC8FF; }
+.nb-btn-white  { background: #FFFFFF; }
+.nb-btn-red    { background: #FF5757; }
+
+/* NB Section Header */
+.nb-section-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 800;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: #111111;
+}
+
+/* NB Badge */
+.nb-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.6rem;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  border: 2px solid #111111;
+  box-shadow: 2px 2px 0px #111111;
+  text-transform: uppercase;
+}
+
+/* NB Toggle */
+.nb-toggle-group {
+  display: inline-flex;
+  border: 4px solid #111111;
+  overflow: hidden;
+}
+
+.nb-toggle-item {
+  padding: 0.4rem 0.8rem;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  color: #111111;
+  text-transform: uppercase;
+  transition: background 0.1s;
+}
+
+.nb-toggle-item.active {
+  background: #FFE156;
+}
+
+.nb-toggle-item:not(.active) {
+  background: white;
+  opacity: 0.5;
+}
+
+/* NB Bit Cell */
+.nb-bit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.4rem;
+  height: 1.4rem;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.6rem;
+  font-weight: 700;
+  border: 2px solid #111111;
+  background: white;
+  color: #111111;
+}
+
+.nb-bit.highlight-yellow { background: #FFE156; }
+.nb-bit.highlight-pink   { background: #FF8FD8; }
+.nb-bit.highlight-teal   { background: #5FE3C4; }
+.nb-bit.highlight-blue   { background: #7EC8FF; }
+.nb-bit.dim { opacity: 0.3; }
+
+/* NB Step Header */
+.nb-step-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border: 4px solid #111111;
+  background: white;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.nb-step-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border: 3px solid #111111;
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  font-size: 0.75rem;
+  background: #FFE156;
+  flex-shrink: 0;
+}
+
+/* NB Result Box */
+.nb-result {
+  padding: 1.5rem;
+  border: 4px solid #111111;
+  box-shadow: 6px 6px 0px #111111;
+  background: white;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #FFF8F0; border-left: 2px solid #111; }
+::-webkit-scrollbar-thumb { background: #111111; }
+::-webkit-scrollbar-thumb:hover { background: #444; }
+
+/* Responsive max-width */
+.nb-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+  .nb-container { padding: 0 2rem; }
+}

@@ -1,0 +1,65 @@
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--glass-glow);
+  padding: var(--space-lg);
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-base);
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.2) 50%, transparent 100%);
+  pointer-events: none;
+}
+
+/* Accent variant */
+.glass-card--accent {
+  border-color: rgba(0, 212, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 212, 255, 0.12);
+}
+
+.glass-card--accent::before {
+  background: linear-gradient(90deg, transparent 0%, rgba(0, 212, 255, 0.35) 50%, transparent 100%);
+}
+
+/* Elevated variant */
+.glass-card--elevated {
+  background: rgba(255,255,255,0.12);
+  box-shadow: 0 12px 40px rgba(79,142,247,0.2);
+}
+
+/* Hover effect */
+.glass-card:hover {
+  border-color: rgba(255,255,255,0.2);
+}
+
+/* Light mode */
+html.light .glass-card {
+  background: rgba(255, 255, 255, 0.55);
+  border-color: rgba(120, 160, 240, 0.2);
+  box-shadow: 0 4px 20px rgba(79, 142, 247, 0.08);
+}
+
+html.light .glass-card--accent {
+  border-color: rgba(0, 140, 190, 0.22);
+  box-shadow: 0 8px 32px rgba(0, 140, 190, 0.1);
+}
+
+/* ─── Responsive ─────────────────────────────────────────── */
+@media (max-width: 480px) {
+  .glass-card {
+    padding: var(--space-md);
+    border-radius: 10px;
+  }
+}
+

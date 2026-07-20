@@ -1,0 +1,17 @@
+.subkey-display {
+  display: flex;
+  justify-content: space-around;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--r-lg);
+  flex-wrap: wrap;
+}
+
+.subkey-display__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+}

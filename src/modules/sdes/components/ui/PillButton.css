@@ -1,0 +1,129 @@
+.pill-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  border: none;
+  border-radius: var(--r-full);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all var(--transition-fast);
+  outline: none;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+
+.pill-btn:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+}
+
+.pill-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Sizes */
+.pill-btn--sm {
+  padding: 6px 16px;
+  font-size: 0.7rem;
+  height: 32px;
+}
+
+.pill-btn--md {
+  padding: 10px 24px;
+  font-size: 0.8rem;
+  height: 40px;
+}
+
+.pill-btn--lg {
+  padding: 14px 32px;
+  font-size: 0.875rem;
+  height: 48px;
+}
+
+/* Primary variant - Cyan solid like navbar active link */
+.pill-btn--primary {
+  background: var(--cyan);
+  color: #fff;
+  box-shadow: 0 2px 12px rgba(0, 212, 255, 0.4);
+}
+
+.pill-btn--primary:hover:not(:disabled) {
+  box-shadow: 0 4px 16px rgba(0, 212, 255, 0.5);
+  background: #00c4ef;
+}
+
+html.light .pill-btn--primary {
+  background: #007aa3;
+  box-shadow: 0 2px 10px rgba(0, 122, 163, 0.3);
+}
+
+html.light .pill-btn--primary:hover:not(:disabled) {
+  background: #006f9a;
+  box-shadow: 0 4px 14px rgba(0, 122, 163, 0.4);
+}
+
+/* Ghost variant */
+.pill-btn--ghost {
+  background: transparent;
+  color: var(--on-surface);
+  border: 1px solid var(--glass-border);
+}
+
+.pill-btn--ghost:hover:not(:disabled) {
+  background: var(--glass-bg);
+  border-color: var(--primary);
+}
+
+/* Cyan variant - Outline style for secondary action */
+.pill-btn--cyan {
+  background: transparent;
+  color: var(--cyan);
+  border: 1px solid rgba(0,212,255,0.3);
+}
+
+.pill-btn--cyan:hover:not(:disabled) {
+  background: rgba(0,212,255,0.1);
+  border-color: var(--cyan);
+  box-shadow: 0 2px 12px rgba(0, 212, 255, 0.2);
+}
+
+html.light .pill-btn--cyan {
+  color: #007aa3;
+  border-color: rgba(0, 122, 163, 0.3);
+}
+
+html.light .pill-btn--cyan:hover:not(:disabled) {
+  background: rgba(0, 122, 163, 0.08);
+  border-color: #007aa3;
+}
+
+/* Icon */
+.pill-btn__icon {
+  display: inline-flex;
+  align-items: center;
+  font-size: 1.1em;
+}
+
+/* Spinner */
+.pill-btn__spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.pill-btn--loading .pill-btn__label {
+  opacity: 0.7;
+}

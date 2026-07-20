@@ -1,0 +1,151 @@
+.result-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--space-xl) !important;
+}
+
+.result-panel__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.result-panel__title {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: 0.15em;
+  color: var(--on-surface);
+  text-shadow: 0 0 15px rgba(79, 142, 247, 0.4);
+}
+
+html.light .result-panel__title {
+  text-shadow: none;
+}
+
+.result-panel__badge {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 3px 10px;
+  border-radius: var(--r-full);
+  background: rgba(0, 212, 255, 0.12);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  color: var(--cyan);
+  text-transform: uppercase;
+}
+
+.result-panel__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-lg);
+  width: 100%;
+}
+
+.result-panel__bits {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: var(--space-sm);
+}
+
+/* ─── Tabel Ringkasan ─────────────────────────────────── */
+.result-panel__summary {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: left;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+}
+
+.result-panel__summary-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-sm) var(--space-md);
+  background: rgba(255, 255, 255, 0.03);
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.result-panel__summary-row--highlight {
+  background: rgba(0, 212, 255, 0.06);
+  border-left: 3px solid var(--cyan);
+}
+
+.result-panel__summary-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--on-surface-var);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+  min-width: 110px;
+}
+
+.result-panel__summary-val {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--on-surface);
+  word-break: break-all;
+}
+
+.result-panel__summary-meta {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--on-surface-var);
+}
+
+.result-panel__keys {
+  margin-top: var(--space-xs);
+}
+
+.result-panel__actions {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: var(--space-sm);
+}
+
+/* ─── Responsive ─────────────────────────────────────────── */
+@media (max-width: 767px) {
+  .result-panel {
+    padding: var(--space-lg) !important;
+  }
+
+  .result-panel__title {
+    font-size: 1.15rem;
+    letter-spacing: 0.08em;
+  }
+
+  .result-panel__summary-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .result-panel__summary-label {
+    min-width: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .result-panel {
+    padding: var(--space-md) !important;
+  }
+
+  .result-panel__header {
+    margin-bottom: var(--space-md);
+  }
+}
+

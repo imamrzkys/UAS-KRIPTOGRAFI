@@ -1,0 +1,325 @@
+/* ─── Panel wrapper ─────────────────────────────────────── */
+.visual-matrix-panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+/* ─── S-Box card (atas) ─────────────────────────────────── */
+.visual-matrix-panel__tabs {
+  display: flex;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.visual-matrix-panel__tabs button {
+  flex: 1;
+}
+
+/* ─── Flow card (bawah) ─────────────────────────────────── */
+.visual-matrix-panel__flow-header {
+  margin-bottom: var(--space-md);
+  border-bottom: 1px solid var(--glass-border);
+  padding-bottom: var(--space-sm);
+}
+
+.visual-matrix-panel__flow-title {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--cyan);
+  letter-spacing: 0.1em;
+}
+
+.visual-matrix-panel__flow-body {
+  width: 100%;
+  min-height: 180px;
+}
+
+/* ─── Placeholder ───────────────────────────────────────── */
+.vm-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xl);
+  gap: var(--space-md);
+  text-align: center;
+  min-height: 160px;
+}
+
+.vm-placeholder__icon svg {
+  width: 52px;
+  height: 52px;
+  opacity: 0.5;
+  animation: float 3s ease-in-out infinite;
+}
+
+.vm-placeholder__text {
+  font-size: 0.78rem;
+  color: var(--on-surface-var);
+  line-height: 1.6;
+  max-width: 220px;
+}
+
+/* ─── Flow scroll container ─────────────────────────────── */
+.vm-flow {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  overflow-y: auto;
+  max-height: 550px;
+  padding-right: 4px;
+}
+
+.vm-flow::-webkit-scrollbar { width: 4px; }
+.vm-flow::-webkit-scrollbar-track { background: transparent; }
+.vm-flow::-webkit-scrollbar-thumb { background: rgba(0,212,255,0.2); border-radius: 2px; }
+
+/* ─── Connector ─────────────────────────────────────────── */
+.vm-flow-connector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: -1px 0;
+  pointer-events: none;
+}
+.vm-flow-connector__line {
+  width: 2px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.1);
+}
+.vm-flow-connector__arrow {
+  font-size: 0.5rem;
+  color: var(--on-surface-var);
+  opacity: 0.2;
+  line-height: 1;
+  margin-top: -2px;
+}
+
+/* ─── Interactive Stage Card ────────────────────────────── */
+.vm-stage-card {
+  border-radius: 10px;
+  border: 1px solid var(--glass-border);
+  background: rgba(255, 255, 255, 0.015);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  padding: 8px 12px;
+  gap: 6px;
+  user-select: none;
+}
+
+.vm-stage-card:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.vm-stage-card--cyan {
+  border-color: rgba(0, 212, 255, 0.16);
+}
+.vm-stage-card--cyan:hover {
+  border-color: rgba(0, 212, 255, 0.45);
+  box-shadow: 0 4px 16px rgba(0, 212, 255, 0.08);
+}
+
+.vm-stage-card--purple {
+  border-color: rgba(139, 92, 246, 0.16);
+}
+.vm-stage-card--purple:hover {
+  border-color: rgba(139, 92, 246, 0.45);
+  box-shadow: 0 4px 16px rgba(139, 92, 246, 0.08);
+}
+
+.vm-stage-card__header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.vm-stage-card__num {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--cyan);
+  background: rgba(0, 212, 255, 0.08);
+  border: 1px solid rgba(0, 212, 255, 0.25);
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.vm-stage-card--purple .vm-stage-card__num {
+  color: var(--purple);
+  background: rgba(139, 92, 246, 0.08);
+  border-color: rgba(139, 92, 246, 0.25);
+}
+
+.vm-stage-card__info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+
+.vm-stage-card__label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.vm-stage-card__desc {
+  font-size: 0.58rem;
+  color: var(--on-surface-var);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  opacity: 0.7;
+}
+
+.vm-stage-card__body {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 32px;
+}
+
+/* ─── Mini Bit Row ──────────────────────────────────────── */
+.vm-mini-bits {
+  display: flex;
+  gap: 2px;
+}
+
+.vm-mini-bit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  font-family: var(--font-mono);
+  font-size: 0.52rem;
+  font-weight: 800;
+  border-radius: 3px;
+  border: 1px solid;
+  user-select: none;
+}
+
+.vm-mini-bit--off {
+  background: rgba(255, 255, 255, 0.02);
+  border-color: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.vm-mini-bit--cyan.vm-mini-bit--on {
+  background: rgba(0, 212, 255, 0.15);
+  border-color: rgba(0, 212, 255, 0.45);
+  color: var(--cyan);
+}
+
+.vm-mini-bit--purple.vm-mini-bit--on {
+  background: rgba(139, 92, 246, 0.15);
+  border-color: rgba(139, 92, 246, 0.45);
+  color: var(--purple);
+}
+
+/* ─── Stage Keys preview ─────────────────────────────────── */
+.vm-stage-keys {
+  display: flex;
+  gap: 12px;
+}
+
+.vm-stage-key-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.vm-key-label {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  font-weight: 700;
+  color: var(--on-surface-var);
+}
+
+/* ─── Light Mode Overrides ─────────────────────────────── */
+html.light .vm-stage-card {
+  background: rgba(0, 0, 0, 0.015);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+html.light .vm-stage-card:hover {
+  background: rgba(0, 0, 0, 0.035);
+}
+html.light .vm-stage-card__label {
+  color: var(--on-background);
+}
+html.light .vm-mini-bit--off {
+  background: rgba(0, 0, 0, 0.03);
+  border-color: rgba(0, 0, 0, 0.08);
+  color: rgba(0, 0, 0, 0.25);
+}
+html.light .vm-flow-connector__line {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+/* ─── Animation Float ─────────────────────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-5px); }
+}
+
+/* ─── Responsive ──────────────────────────────────────────── */
+
+/* On tablet (768-1099px): the sidebar becomes a 2-col grid.
+   Each card needs to look good side by side. */
+@media (min-width: 768px) and (max-width: 1099px) {
+  .visual-matrix-panel {
+    flex-direction: row;
+    gap: var(--space-lg);
+    align-items: flex-start;
+  }
+
+  .visual-matrix-panel__sbox-card,
+  .visual-matrix-panel__flow-card {
+    flex: 1;
+    min-width: 0;
+  }
+
+  /* Flow list: use 2 columns of stages on tablet */
+  .vm-flow {
+    max-height: none;
+    overflow-y: visible;
+  }
+}
+
+/* Mobile (<768px): full-width stacked panels */
+@media (max-width: 767px) {
+  .vm-flow {
+    max-height: 400px;
+  }
+
+  .vm-stage-card {
+    padding: 7px 10px;
+  }
+
+  .vm-stage-card__label {
+    font-size: 0.68rem;
+  }
+
+  .vm-stage-card__desc {
+    font-size: 0.55rem;
+  }
+
+  .vm-mini-bit {
+    width: 12px;
+    height: 12px;
+    font-size: 0.48rem;
+  }
+}
+

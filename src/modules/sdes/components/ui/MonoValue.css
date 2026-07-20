@@ -1,0 +1,45 @@
+.mono-value {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+}
+
+.mono-value__label {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  color: var(--on-surface-var);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.mono-value__text {
+  font-weight: 700;
+  color: var(--on-surface);
+  letter-spacing: 0.06em;
+}
+
+/* Sizes */
+.mono-value--sm {
+  font-size: 0.75rem;
+}
+
+.mono-value--sm .mono-value__label {
+  font-size: 0.65rem;
+}
+
+.mono-value--md {
+  font-size: 0.875rem;
+}
+
+.mono-value--md .mono-value__label {
+  font-size: 0.75rem;
+}
+
+.mono-value--lg {
+  font-size: 1.125rem;
+}
+
+.mono-value--lg .mono-value__label {
+  font-size: 0.875rem;
+}

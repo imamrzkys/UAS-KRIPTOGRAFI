@@ -1,0 +1,167 @@
+.solution-trace {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── Header toggle ─────────────────────────────────────── */
+.solution-trace__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-md) var(--space-lg) !important;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  cursor: pointer;
+  transition: background 0.2s;
+  position: relative;
+  z-index: 1;
+}
+
+.solution-trace__header:hover {
+  background: rgba(0, 212, 255, 0.04);
+}
+
+.solution-trace__header-content {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.solution-trace__header-title {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  color: var(--on-surface);
+}
+
+.solution-trace__arrow {
+  font-size: 0.8rem;
+  color: var(--cyan);
+  opacity: 0.7;
+}
+
+/* ─── Collapsible body ──────────────────────────────────── */
+.solution-trace__body {
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.solution-trace__content-card {
+  padding: var(--space-xl) !important;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── Section title ─────────────────────────────────────── */
+.solution-trace__section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.solution-trace__section-title {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--cyan);
+  border-bottom: 1px solid var(--glass-border);
+  padding-bottom: var(--space-sm);
+  margin-bottom: var(--space-sm);
+}
+
+/* ─── Pipeline ──────────────────────────────────────────── */
+.solution-trace__pipeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.solution-trace__step-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+/* ─── Sub-steps (Detail langkah putaran Feistel) ────────── */
+.solution-trace__sub-steps {
+  margin-left: 42px;  /* Align with content, past the step marker */
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: var(--space-md);
+}
+
+.solution-trace__sub-steps-title {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--purple);
+  background: rgba(139, 92, 246, 0.08);
+  padding: 6px 12px;
+  border-bottom: 1px solid rgba(139, 92, 246, 0.15);
+  letter-spacing: 0.08em;
+}
+
+.solution-trace__sub-steps-inner {
+  padding: var(--space-md) var(--space-md) 0;
+}
+
+/* Sub-step step overrides */
+.solution-trace__sub-pipeline-step {
+  margin-bottom: 4px;
+}
+
+/* ─── Pulse animation when scrolled from navigator ─────── */
+@keyframes stepPulseGlow {
+  0% { box-shadow: 0 0 0 rgba(0, 212, 255, 0); }
+  50% { box-shadow: 0 0 24px rgba(0, 212, 255, 0.6); border-color: var(--cyan) !important; background: rgba(0, 212, 255, 0.04); }
+  100% { box-shadow: 0 0 0 rgba(0, 212, 255, 0); }
+}
+
+.trace-step-pulse {
+  animation: stepPulseGlow 1.2s ease-in-out 2;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+/* ─── Responsive ────────────────────────────────────────── */
+
+@media (max-width: 767px) {
+  .solution-trace__content-card {
+    padding: var(--space-md) !important;
+    gap: var(--space-lg);
+  }
+
+  .solution-trace__header {
+    padding: var(--space-sm) var(--space-md) !important;
+  }
+
+  .solution-trace__header-title {
+    font-size: 0.75rem;
+  }
+
+  .solution-trace__sub-steps {
+    margin-left: 24px;
+  }
+
+  .solution-trace__section-title {
+    font-size: 0.78rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .solution-trace__sub-steps {
+    margin-left: 0;
+    border-radius: 8px;
+  }
+}
+

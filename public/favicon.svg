@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Background square -->
+  <rect width="64" height="64" fill="#FFE156"/>
+  <!-- Black border -->
+  <rect x="2" y="2" width="60" height="60" fill="none" stroke="#111111" stroke-width="4"/>
+  <!-- "CF" text -->
+  <text x="32" y="43" font-family="Arial Black, sans-serif" font-size="28" font-weight="900" text-anchor="middle" fill="#111111">CF</text>
+</svg>

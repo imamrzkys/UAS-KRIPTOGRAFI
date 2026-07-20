@@ -1,0 +1,123 @@
+/* ─── Simulator Page ─────────────────────────────────────── */
+.simulator-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+/* ─── Page Header ────────────────────────────────────────── */
+.simulator-page__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+  padding-bottom: var(--space-md);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.simulator-page__header-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.simulator-page__title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: var(--on-surface);
+  line-height: 1.2;
+}
+
+.simulator-page__title-icon {
+  font-size: 1.4rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+.simulator-page__subtitle {
+  font-size: 0.85rem;
+  color: var(--on-surface-var);
+  line-height: 1.6;
+  max-width: 560px;
+}
+
+/* ─── Info Badges ────────────────────────────────────────── */
+.simulator-page__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  align-items: center;
+}
+
+.sim-badge {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 4px 12px;
+  border-radius: var(--r-full);
+  text-transform: uppercase;
+}
+
+.sim-badge--cyan {
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  color: var(--cyan);
+}
+
+.sim-badge--purple {
+  background: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  color: var(--purple);
+}
+
+.sim-badge--blue {
+  background: rgba(79, 142, 247, 0.1);
+  border: 1px solid rgba(79, 142, 247, 0.3);
+  color: var(--electric-blue);
+}
+
+/* ─── Responsive ─────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .simulator-page {
+    gap: var(--space-lg);
+  }
+
+  .simulator-page__header {
+    flex-direction: column;
+    gap: var(--space-sm);
+    padding-bottom: var(--space-sm);
+  }
+
+  .simulator-page__title {
+    font-size: 1.2rem;
+  }
+
+  .simulator-page__title-icon {
+    font-size: 1.1rem;
+  }
+
+  .simulator-page__subtitle {
+    font-size: 0.78rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .simulator-page__title {
+    font-size: 1.05rem;
+  }
+
+  .simulator-page__badges {
+    gap: 4px;
+  }
+
+  .sim-badge {
+    font-size: 0.6rem;
+    padding: 3px 8px;
+  }
+}

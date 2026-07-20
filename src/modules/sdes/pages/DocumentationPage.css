@@ -1,0 +1,108 @@
+.docs-page {
+  padding-top: var(--space-lg);
+}
+
+.docs-page__hero {
+  margin-bottom: var(--space-xl);
+  text-align: center;
+}
+
+.docs-page__title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--on-surface);
+  text-shadow: 0 0 15px rgba(79, 142, 247, 0.25);
+}
+
+.docs-page__subtitle {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--cyan);
+  margin-top: 4px;
+}
+
+.docs-page__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+@media (min-width: 900px) {
+  .docs-page__grid {
+    grid-template-columns: 7fr 3fr;
+  }
+}
+
+.docs-page__card {
+  margin-bottom: var(--space-lg);
+}
+
+.docs-page__card p {
+  font-size: 0.95rem;
+  color: var(--on-surface-var);
+  line-height: 1.7;
+  margin-bottom: var(--space-md);
+}
+
+.docs-page__card p:last-child {
+  margin-bottom: 0;
+}
+
+.docs-page__section-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--on-surface);
+  margin-bottom: var(--space-md);
+}
+
+.docs-page__diagram-box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: var(--space-lg);
+  background: rgba(6, 20, 35, 0.4);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--r-lg);
+  margin-top: var(--space-md);
+}
+
+.docs-page__svg-flow {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+}
+
+.docs-page__sidebar-card {
+  padding: var(--space-lg) !important;
+}
+
+.docs-page__sidebar-title {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--on-surface-var);
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-xs);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.docs-page__step-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.docs-page__step-list li {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.mt-1 {
+  margin-top: 4px;
+}
+.margin-bottom {
+  margin-bottom: var(--space-md);
+}

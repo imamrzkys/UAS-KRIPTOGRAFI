@@ -1,0 +1,51 @@
+.simulator-panel {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+/* ─── Tablet (640px+): 3 cards in a row */
+@media (min-width: 640px) {
+  .simulator-panel {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ─── Mobile: cards stack, min height smaller */
+@media (max-width: 639px) {
+  .simulator-panel__card {
+    min-height: 0;
+  }
+}
+
+.simulator-panel__card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 110px;
+}
+
+.simulator-panel__controls {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.simulator-panel__label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--on-surface-var);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.simulator-panel__btn-group {
+  display: flex;
+  gap: var(--space-sm);
+  width: 100%;
+}
+
+.simulator-panel__btn-group button {
+  flex: 1;
+}
