@@ -47,3 +47,65 @@
 .animation-delay-500 { animation-delay: 500ms; }
 .animation-delay-600 { animation-delay: 600ms; }
 .animation-delay-700 { animation-delay: 700ms; }
+
+/* ─── NEOBRUTALISM OVERRIDES FOR AES-128 ─── */
+.bg-surface-container, 
+.bg-surface-container-high, 
+.bg-surface-container-low, 
+.nb-card, 
+div[class*="bg-surface-container"] {
+  border: 4px solid #111111 !important;
+  box-shadow: 6px 6px 0px #111111 !important;
+  border-radius: 0px !important;
+  background-color: #ffffff !important;
+}
+
+input[type="text"], 
+input[type="password"], 
+input {
+  border: 4px solid #111111 !important;
+  box-shadow: 2px 2px 0px #111111 !important;
+  border-radius: 0px !important;
+  background-color: #ffffff !important;
+  font-family: 'Space Mono', monospace !important;
+  color: #111111 !important;
+}
+
+button {
+  border-radius: 0px !important;
+}
+
+/* Override active mode pills and toggles */
+div[class*="border-outline-variant"], 
+div[class*="border-2"] {
+  border: 4px solid #111111 !important;
+  border-radius: 0px !important;
+  box-shadow: 2px 2px 0px #111111 !important;
+}
+
+/* Custom glow overrides to keep them flat and matching theme */
+.glow-teal, .glow-amber, .glow-violet, .glow-rose {
+  box-shadow: 4px 4px 0px #111111 !important;
+  border: 4px solid #111111 !important;
+}
+
+.glow-teal { background-color: #CCFAF0 !important; }
+.glow-amber { background-color: #FFF3CC !important; }
+.glow-violet { background-color: #FFEBF7 !important; }
+.glow-rose { background-color: #FFDAF0 !important; }
+
+/* Font and text alignments */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', sans-serif !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
+}
+
+span, p, div, label, td, th {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+code, .font-mono, td[class*="font-mono"] {
+  font-family: 'Space Mono', monospace !important;
+}
+
